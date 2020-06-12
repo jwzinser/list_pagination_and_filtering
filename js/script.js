@@ -8,11 +8,9 @@ FSJS project 2 - List Filter and Pagination
 
 // GLOBAL Vars, boolean to check if search buttons are on or off
 const allStudents = document.querySelectorAll('.student-item');
-const studentsPage = 15;
+const studentsPage = 10;
 let nameSearchClicked=false;
 let mailSearchClicked=false;
-
-
 
 const showPage = (list, page) => { 
    var idx_start = page*studentsPage-studentsPage;
@@ -23,10 +21,8 @@ const showPage = (list, page) => {
       {
          list[idx].style.display='block';
       }else{
-         list[idx].style.display='none';
-      }
+         list[idx].style.display='none';}
    }
-
 } 
 
 
@@ -35,7 +31,6 @@ const appendPageLinks = (list) => {
    const page = document.querySelector('.page');
    var pagination = document.querySelector('.pagination');
    pagination ? page.removeChild(pagination) : {};
-
 
    var pagination = document.createElement('div');
    const pageGP = document.createElement('ul');
@@ -109,7 +104,6 @@ const seachField = () => {
    nameButton.toggleStatus = "off";
    mailButton.toggleStatus = "off";
 
-
    nameButton.addEventListener('click', (e) => {
       searchButtonListener(nameButton, 'name', e, searchField)
    });
@@ -129,10 +123,8 @@ const seachField = () => {
    });
 };
 
-
 // searchs user on name or email depending if button(s) are activated
 const userSearch = (input, list) => {
-   console.log(input);
    try{
       var re = new RegExp(input);
    }
